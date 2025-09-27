@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("productModal");
+  const productModal = document.getElementById("productModal");
+  const quoteModal = document.getElementById("quoteModal");
   const modalBody = document.getElementById("modalBody");
-  const closeBtn = document.querySelector(".close");
+  const closeButtons = document.querySelectorAll(".close");
 
   let currentIndex = 0;
   let images = [];
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     tryLoadNext();
 
-    modal.style.display = "block";
+    productModal.style.display = "block";
   };
 
   // 🔹 Render full slideshow with details
@@ -58,11 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <img id="slideshow-img" src="${images[currentIndex]}" class="modal-image"/>
         <button class="nav-btn next">&gt;</button>
       </div>
-
-
       <h2 class="modal-title">${title}</h2>
       <p class="modal-description">${description}</p>
-
       <div class="specifications">
         <h4>Specifications</h4>
         <div class="spec-grid">
@@ -87,8 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateImage() {
     const img = modalBody.querySelector("#slideshow-img");
     img.src = images[currentIndex];
-    modalBody.querySelector(".caption").innerText =
-      `Image ${currentIndex + 1} of ${images.length}`;
   }
 
   // 🔹 Image-only modal (for New Launch section)
@@ -117,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderImageOnly() {
       if (imgs.length === 0) {
         modalBody.innerHTML = "<p>No images found.</p>";
-        modal.style.display = "block";
+        productModal.style.display = "block";
         return;
       }
 
@@ -141,18 +137,24 @@ document.addEventListener("DOMContentLoaded", () => {
       function updateImageOnly() {
         const img = modalBody.querySelector("#slideshow-img");
         img.src = imgs[currentIndex];
-        modalBody.querySelector(".caption").innerText =
-          `Image ${currentIndex + 1} of ${imgs.length}`;
       }
     }
 
-    modal.style.display = "block";
+    productModal.style.display = "block";
   };
 
-  // 🔹 Close modal
-  closeBtn.onclick = () => (modal.style.display = "none");
+  // 🔹 Close modals when clicking the close button
+  closeButtons.forEach(button => {
+    button.onclick = () => {
+      productModal.style.display = "none";
+      quoteModal.style.display = "none";
+    };
+  });
+
+  // 🔹 Close modals when clicking outside
   window.onclick = e => {
-    if (e.target === modal) modal.style.display = "none";
+    if (e.target === productModal) productModal.style.display = "none";
+    if (e.target === quoteModal) quoteModal.style.display = "none";
   };
 
   // 🔹 Fade-in observer
@@ -181,30 +183,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-});
 
-// 🔹 New function to open the quote modal
-window.openQuoteModal = function() {
-  const quoteModal = document.getElementById("quoteModal");
-  quoteModal.style.display = "block";
-};
-
-// 🔹 New function to handle form submission
-document.getElementById("quoteForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevents the form from submitting in the traditional way
-
-  // Here you would typically send the form data to a server
-  const formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    request: document.getElementById("request").value
+  // 🔹 Open quote modal
+  window.openQuoteModal = function() {
+    quoteModal.style.display = "block";
   };
 
-  console.log("Form Submitted:", formData);
-  alert("Your request has been sent! We will contact you shortly.");
+  // 🔹 Handle form submission
+  document.getElementById("quoteForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-  // Close the modal and reset the form
-  document.getElementById("quoteModal").style.display = "none";
-  this.reset();
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      request: document.getElementById("request").value
+    };
+
+    console.log("Form Submitted:", formData);
+    alert("Your request has been sent! We will contact you shortly.");
+
+    quoteModal.style.display = "none";
+    this.reset();
+  });
 });
