@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mashriq Decor - Premium Home Decor</title>
+  <link rel="stylesheet" href="style2.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="logo_black1.png" alt="Mashriq Decor Logo" />
+          <span class="logo-text">Mashriq Decor</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#new-launches" class="nav-link">New Launches</a></li>
+          <li><a href="#vases" class="nav-link">Vases</a></li>
+          <li><a href="#candle-holders" class="nav-link">Candle Holders</a></li>
+          <li><a href="#lamps" class="nav-link">Lamps</a></li>
+          <li><a href="#wall-arts" class="nav-link">Wall Arts</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+        </ul>
+        <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-section">
+    <div class="hero-content">
+      <h1>Transform Your Space</h1>
+      <p>
+        Discover our curated collection of premium home decor pieces that bring
+        elegance and sophistication to every corner of your home.
+      </p>
+      <button class="cta-button" onclick="document.getElementById('new-launches').scrollIntoView({behavior: 'smooth'})">
+        Explore Collection
+      </button>
+    </div>
+    <div class="hero-images">
+      <img src="public/brass-wall-art.jpg" alt="Elegant wall art" />
+      <img src="public/table_decor_10.jpg" alt="Elegant vase decor" />
+    </div>
+  </section>
+
+    <!-- 🔹 New Launches Section -->
+    <section id="new-launches" class="product-section fade-section">
+      <div class="container">
+        <h2 class="section-title">New Launches</h2>
+        <h2 class="section-sub-title" style="text-align: center; color: #e1f49a;"> <i>Explore the latest set of New products Launched this Month.....</i></h2>
+        <div class="new-launch-container">
+          <div class="new-launch-grid">
+  
+            <div class="product-thumb img1" data-prefix="new_launch_1_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_1_1.jpg" alt="New Launch Product 1">
+            </div>
+  
+            <div class="product-thumb img2" data-prefix="new_launch_2_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_2_1.jpg" alt="New Launch Product 2">
+            </div>
+  
+            <div class="product-thumb img3" data-prefix="new_launch_3_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_3_1.jpg" alt="New Launch Product 3">
+            </div>
+  
+            <div class="product-thumb img4" data-prefix="new_launch_4_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_4_1.jpg" alt="New Launch Product 4">
+            </div>
+  
+            <div class="product-thumb img5" data-prefix="new_launch_5_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_5_1.jpg" alt="New Launch Product 5">
+            </div>
+  
+            <div class="product-thumb img6" data-prefix="new_launch_6_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_6_1.jpg" alt="New Launch Product 6">
+            </div>
+  
+            <div class="product-thumb img7" data-prefix="new_launch_7_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/new_launch/new_launch_7_1.jpg" alt="New Launch Product 7">
+            </div>
+  
+            <div class="product-thumb img8" data-prefix="new_launch_8_" data-folder="public/new_launch" onclick="openImageOnly(this)">
+              <img src="public/Wall Art/Wall_art_6_1.jpg" alt="New Launch Product 8">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Vases -->
+  <section id="vases" class="product-section fade-section">
+    <div class="container">
+      <h2 class="section-title">Vases</h2>
+      <h2 class="section-sub-title" style="text-align: center; color: #e1f49a;"> <i>Discover our sophisticated range of contemporary vases, designed to complement your home....</i></h2>
+      <div class="products-scroll">
+
+    <div class="product-card product-high"
+         data-prefix="Vases_1_"
+         data-folder="public/vases"
+         data-title="HALONEST PLANTER DUO (PL-37)"
+         data-description="Matte white, dimpled planters on elegant gold base. Modern; perfect for desks, shelves, orconsoles."
+         data-dimensions="Height: 30cm"
+         data-material="Ceramic"
+         data-finish="Matte glaze"
+         data-weight="3kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_1_1.jpg" alt="Decorative Vase 1">
+      <h3>HALONEST PLANTER DUO</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_2_"
+         data-folder="public/vases"
+         data-title="BLACKSTONE ELEVATED PLANTER (PL-45)"
+         data-description="Robust black planter featuring a dimpled surface and a raised leg-frame for a striking, modern accent."
+         data-dimensions="Height: 20cm"
+         data-material="Ceramic"
+         data-finish="Textured glaze"
+         data-weight="2.5kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_2_1.jpg" alt="Decorative Vase 2">
+      <h3>BLACKSTONE ELEVATED PLANTER</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_3_"
+         data-folder="public/vases"
+         data-title="AUREA RIBBED PLANTER WITH STAND (PL-69)"
+         data-description="Plush gold ribbed metal planter perched on a minimalist stand. Lends a sculptural, luxe touch to tabletops and consoles."
+         data-dimensions="Height: 20cm"
+         data-material="Metal"
+         data-finish="Brushed"
+         data-weight="3.5kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_3_1.jpg" alt="Decorative Vase 3">
+      <h3>AUREA RIBBED PLANTER WITH STAND</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-high"
+         data-prefix="Vases_4_"
+         data-folder="public/vases"
+         data-title="AUREAHARVEST GOLD PLANTER (PL-77)"
+         data-description="Hammered gold-toned metal planter with a rounded silhouette. Its timeless design makes it a versatile piece, ideal for serving, home décor, or gifting, adding a touch of luxury to any space."
+         data-dimensions="Height: 35cm"
+         data-material="Metal"
+         data-finish="Hammered"
+         data-weight="3kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_4_1.jpg" alt="Decorative Vase 4">
+      <h3>AUREAHARVEST GOLD PLANTER</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_5_"
+         data-folder="public/vases"
+         data-title="AUREA BLOOM VASE (PL-39)"
+         data-description="Luxe, gold metal vase with a glossy finish, showcased with a vibrant bouquet. Adds a statement focal point to tabletops and console displays"
+         data-dimensions="Height: 16cm"
+         data-material="Metal"
+         data-finish="Polished"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_5_1.jpg" alt="Decorative Vase 5">
+      <h3>AUREA BLOOM VASE</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_6_"
+         data-folder="public/vases"
+         data-title="Decorative Vase 6"
+         data-description="Premium decorative vase for modern interiors."
+         data-dimensions="Height: 35cm"
+         data-material="Ceramic/Marble"
+         data-finish="Polished"
+         data-weight="3kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_6_1.jpg" alt="Decorative Vase 6">
+      <h3>Decorative Vase 6</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_7_"
+         data-folder="public/vases"
+         data-title="LUMAGARDEN PLANT STAND POT (PL-56)"
+         data-description="Brushed brass-toned planter perched on a bold black wire stand. Modern, architectural silhouette that elevates greenery and living room corners."
+         data-dimensions="Height: 30,5cm"
+         data-material="Brass"
+         data-finish="Polished"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_7_1.jpg" alt="Decorative Vase 7">
+      <h3>LUMAGARDEN PLANT STAND POT</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-low"
+         data-prefix="Vases_8_"
+         data-folder="public/vases"
+         data-title="LUMATOWER PLANTER TRIO (PL-24)"
+         data-description="Black textured pots perched on sleek gold-tone wire pedestals in varying heights. Create a sculptural focal point for entrances, livingrooms, or patios."
+         data-dimensions="Height: 60-90cm"
+         data-material="Ceramic, Metal"
+         data-finish="Matte"
+         data-weight="2-4 kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_8_1.jpg" alt="Decorative Vase 8">
+      <h3>LUMATOWER PLANTER TRIO</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_9_"
+         data-folder="public/vases"
+         data-title="LUMARIDGE PLANTER TALL DUO (PL-21)"
+         data-description="A matched pair of black ceramic planters perched on sculptural gold-tone wire stands. Sleek, modern silhouette with a luxe finish—perfect for greenery podiums or entryway displays."
+         data-dimensions="Height: 70 -85cm"
+         data-material="Metal"
+         data-finish="Glazed and polishes"
+         data-weight="2-5kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_9_1.jpg" alt="Decorative Vase 9">
+      <h3>LUMARIDGE PLANTER TALL DUO</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Vases_10_"
+         data-folder="public/vases"
+         data-title="Decorative Vase 10"
+         data-description="Premium decorative vase for modern interiors."
+         data-dimensions="Height: 35cm"
+         data-material="Ceramic/Marble"
+         data-finish="Polished"
+         data-weight="3kg"
+         onclick="openModal(this)">
+      <img src="public/vases/Vases_10_1.jpg" alt="Decorative Vase 10">
+      <h3>Decorative Vase 10</h3>
+      <p>Premium decorative vase for modern interiors.</p>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="candle-holders" class="product-section fade-section">
+    <div class="container">
+      <h2 class="section-title">Candle Holders</h2>
+      <h2 class="section-sub-title" style="text-align: center; color: #e1f49a;"> <i>Discover our elegant selection of candle holders, designed to create a warm and inviting glow.....</i></h2>
+      <div class="products-scroll">
+
+    <div class="product-card product-low"
+         data-prefix="candle_holder_1_"
+         data-folder="public/candle_stand"
+         data-title="Modern Spires Candle Holder"
+         data-description="This stunning five-stem candle holder features a unique, modern design with a graceful arcing base. Its polished gold finish and tiered heights add a sophisticated and warm glow to any setting."
+         data-dimensions="Height: 25cm"
+         data-material="Metal & Glass"
+         data-finish="Antique/Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_1_1.jpg" alt="Candle Holder 1">
+      <h3>Modern Spires Candle Holder</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_2_"
+         data-folder="public/candle_stand"
+         data-title="Modern Column Candle Holders"
+         data-description="This elegant trio of floor candle holders features a sleek, sculptural design with a flared, trumpet-shaped base. Their varying heights and antique brass finish create a dynamic and luxurious display."
+         data-dimensions="Height: 25cm"
+         data-material="Metal & Glass"
+         data-finish="Antique/Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_2_1.jpg" alt="Candle Holder 2">
+      <h3>Modern Column Candle Holders</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_3_"
+         data-folder="public/candle_stand"
+         data-title="Golden Cones Candle Holder Duo"
+         data-description="This stunning duo of candle holders features a sleek, conical design with a tiered aesthetic. Their highly polished gold finish beautifully reflects light, adding a touch of modern luxury to any room."
+         data-dimensions="Height: 25cm"
+         data-material="Metal & Glass"
+         data-finish="Antique/Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_3_1.jpg" alt="Candle Holder 3">
+      <h3>Golden Cones Candle Holder Duo</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_4_"
+         data-folder="public/candle_stand"
+         data-title="BRASS ARC CANDLE HOLDER WITH GLASS CYLINDER (CS-027)"
+         data-description="Elegant brass-toned table candle holder featuring a circular arc frame and glass cylinder with a warm candle glow."
+         data-dimensions="Diemension: 40 x 15cm"
+         data-material="Brass"
+         data-finish="Antique"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_4_1.jpg" alt="Candle Holder 4">
+      <h3>BRASS ARC CANDLE HOLDER WITH GLASS CYLINDER</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_5_"
+         data-folder="public/candle_stand"
+         data-title="GOLD-TANDEM CANDLE HOLDERS (CS-011)"
+         data-description="Elegant gold-tone candle holders with green bases, tall taper-style silhouettes and round accents."
+         data-dimensions="Height: 25 -35cm"
+         data-material="Metal"
+         data-finish="Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_5_1.jpg" alt="Candle Holder 5">
+      <h3>GOLD-TANDEM CANDLE HOLDERS</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_6_"
+         data-folder="public/candle_stand"
+         data-title="BRONZE TRIPLE-BRANCH CANDLESTICK CENTERPIECE (CS-023)"
+         data-description="Bronze-toned, three-arm candle holder with glass hurricane shields on a curved arc base."
+         data-dimensions="Diemsion: 25 x 40cm"
+         data-material="Metal & Glass"
+         data-finish="Antique/Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_6_1.jpg" alt="Candle Holder 6">
+      <h3>BRONZE TRIPLE-BRANCH CANDLESTICK CENTERPIECE</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_7_"
+         data-folder="public/candle_stand"
+         data-title="BRASS-TONE GLASS CYLINDER CANDLESTICK ON STAND (CS-024)"
+         data-description="Vintage-inspired brass frame with tall glass cylinder atop a black rectangular base and spherical accent, perfect as a centerpiece or decorative candle holder."
+         data-dimensions="Dimensions: 40x20cm"
+         data-material="Brass"
+         data-finish="Antique"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_7_1.jpg" alt="Candle Holder 7">
+      <h3>BRASS-TONE GLASS CYLINDER CANDLESTICK ON STAND</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_8_"
+         data-folder="public/candle_stand"
+         data-title="GOLD RIBBED CAGE TABLE LAMP WITH CANDLESTICK CAP (CS-032)"
+         data-description="Tall gold-toned cage-style base with slim vertical ribs, topped by a candle-style holder and beige cylindrical shade, resting on a round base."
+         data-dimensions="Height: 30-45cm"
+         data-material="Metal"
+         data-finish="Polished"
+         data-weight="1.2kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_8_1.jpg" alt="Candle Holder 8">
+      <h3>GOLD RIBBED CAGE TABLE LAMP WITH CANDLESTICK CAP</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_9_"
+         data-folder="public/candle_stand"
+         data-title="Modern Branch Candlestick"
+         data-description="This minimalist candle holder features a sculptural design that holds two taper candles at different heights. Its sleek, brushed gold finish adds a touch of modern elegance to any space."
+         data-dimensions="Height: 25cm"
+         data-material="Metal & Glass"
+         data-finish="Antique/Gloss"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_9_1.jpg" alt="Candle Holder 9">
+      <h3>Modern Branch Candlestick</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="candle_holder_10_"
+         data-folder="public/candle_stand"
+         data-title="GOLD FAN-PATTERN WALL CANDLE HOLDER (CS-019)"
+         data-description="Gold-tone round wall sconce featuring a textured radiating pattern and a small candle holder at the bottom."
+         data-dimensions="Dia: 20-40cm"
+         data-material="Metal"
+         data-finish="Textured"
+         data-weight="1-2kg"
+         onclick="openModal(this)">
+      <img src="public/candle_stand/candle_holder_10_1.jpg" alt="Candle Holder 10">
+      <h3>GOLD FAN-PATTERN WALL CANDLE HOLDER</h3>
+      <p>Elegant handcrafted candle holder.</p>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lamps -->
+  <section id="lamps" class="product-section fade-section">
+    <div class="container">
+      <h2 class="section-title">Lamps</h2>
+      <h2 class="section-sub-title" style="text-align: center; color: #e1f49a;"> <i>Discover our new selection of statement lamps, perfect for adding a touch of elegance to any room......</i></h2>
+      <div class="products-scroll">
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_1_"
+         data-folder="public/Lamps"
+         data-title="Magnolia (Black, Gold) Table Lamp (TL-021)"
+         data-description="This lamp blends polished gold details with a chain-link inspired frame and a marble base. It brings together the durability of a mearble with the warmth of the white fabric shade, making it verstile for layered lighting."
+         data-dimensions="Dimensions: 86x45 cm"
+         data-material="Colour: Gold"
+         data-finish="Shade color:off-white"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_1_1.jpg" alt="Lamp 1">
+      <h3>Magnolia (Black, Gold) Table Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_2_"
+         data-folder="public/Lamps"
+         data-title="One Moment In Time (Gold) Floor Lamp (FL-047)"
+         data-description="The black and gold tripod floor lamp is both classic and simple. The black shade and matte stand constrast aesthetically with gold base and ball. Let this tripod floor lamp transform your living room, dining room, lounge and more."
+         data-dimensions="160x45 cm"
+         data-material="Colour: black, gold"
+         data-finish="Shade color: balck"
+         data-weight="3kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_2_1.jpg" alt="Lamp 2">
+      <h3>One Moment In Time (Gold) Floor Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_3_"
+         data-folder="public/Lamps"
+         data-title="Road Ahead (Gold, Black, White) Metal Table Lamp (TL- 092)"
+         data-description="Stacked finish of black, white and gold give the Road Ahead table Lamp a sculpturl, almost architectural quality. It work best where contrast is welcome: a study corner, a statement shelf and more."
+         data-dimensions="60x38 cm"
+         data-material="Colour: Black, gold"
+         data-finish="Shade color: creamish"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_3_1.jpg" alt="Lamp 3">
+      <h3>Road Ahead (Gold, Black, White) Metal Table Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_4_"
+         data-folder="public/Lamps"
+         data-title="Soup For The Soul (Gold, Smart LED) Marble Table Lamp (TL-073)"
+         data-description="A smart lamp that's easy, modern and sleek to use! Add it to your bedrooms, living and den areas to add lightning that's modern and smart."
+         data-dimensions="57x20 cm"
+         data-material="Colour: Gold "
+         data-finish="Shade color. White"
+         data-weight="1kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_4_1.jpg" alt="Lamp 4">
+      <h3>Soup For The Soul (Gold, Smart LED) Marble Table Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_5_"
+         data-folder="public/Lamps"
+         data-title="Sweet Escapade (Antique Gold, Off-White) Metal Table Lamp (TL-017)"
+         data-description="The sweet Escapade Table Lamp mirrors the ease of it's floor counterpart. It is a timeless piece that feels at home on any space that calls for subtle light."
+         data-dimensions="64x35 cm"
+         data-material="Color: Antique gold"
+         data-finish="Shade color: White"
+         data-weight="1.4kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_5_1.jpg" alt="Lamp 5">
+      <h3>Sweet Escapade (Antique Gold, Off-White) Metal Table Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_6_"
+         data-folder="public/Lamps"
+         data-title="Take A Trip (Black) Marble Floor Lamp (FL-002)"
+         data-description="A hallmark of stylish functionality. If you've been trying to find a perfect modern floor lamp with table, then this is the work of art for you."
+         data-dimensions="172x40 cm"
+         data-material="Colour: Black"
+         data-finish="Shade color: White"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_6_1.jpg" alt="Lamp 6">
+      <h3>Take A Trip (Black) Marble Floor Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="lamp_7_"
+         data-folder="public/Lamps"
+         data-title="Why Try (Blue_White) Ceramic Table Lamp (TL-022)"
+         data-description="Why try captures the wonder of nature in its soft color palette and floral motifs. Choose this blue-white ceramic table lamp for your minimalist-inspired interiors for a floral appeal"
+         data-dimensions="53x33 cm"
+         data-material="Colour: Blue"
+         data-finish="Shade color: White"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Lamps/lamp_7_1.jpg" alt="Lamp 7">
+      <h3>Why Try (Blue_White) Ceramic Table Lamp</h3>
+      <p>Contemporary handcrafted Lamp.</p>
+    </div>
+  </div>
+  </section>
+
+   <!-- Wall Arts -->
+   <section id="wall-arts" class="product-section fade-section">
+    <div class="container">
+      <h2 class="section-title">Wall Arts</h2>
+      <h2 class="section-sub-title" style="text-align: center; color: #e1f49a;"> <i>Shop our collection of contemporary wall art to elevate your home decor......</i></h2>
+      <div class="products-scroll">
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_1_"
+         data-folder="public/Wall Art"
+         data-title="Gilded Leaves Wall Art"
+         data-description="An elegant two-piece set featuring a stunning arrangement of layered gold and dark metal leaves within a sleek frame."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_1_1.jpg" alt="Gilded Leaves Wall Art">
+      <h3>Gilded Leaves Wall Art</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_2_"
+         data-folder="public/Wall Art"
+         data-title="Emerald Branch Wall Panel"
+         data-description="This stunning wall panel features a delicate branching design, with each leaf painted in a vibrant emerald green."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_2_1.jpg" alt="Emerald Branch Wall Panel">
+      <h3>Emerald Branch Wall Panel</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_3_"
+         data-folder="public/Wall Art"
+         data-title="Golden Ginkgo Wall Art"
+         data-description="A graceful metal art piece featuring a beautiful arrangement of stylized gold and metallic two-tone ginkgo leaves."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_3_1.jpg" alt="Golden Ginkgo Wall Art">
+      <h3>Golden Ginkgo Wall Art</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_4_"
+         data-folder="public/Wall Art"
+         data-title="The Azure Garden Trio"
+         data-description="This striking three-piece set features a mix of intricate floral designs, all unified by a modern blue and gold color scheme."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_4_1.jpg" alt="public/Wall Art 4">
+      <h3>The Azure Garden Trio</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_5_"
+         data-folder="public/Wall Art"
+         data-title="Harmony Fan Leaf Wall Decor"
+         data-description="A captivating round wall sculpture showcasing a harmonious arrangement of golden and deep blue fan-shaped leaves."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_5_1.jpg" alt="public/Wall Art 5">
+      <h3>Harmony Fan Leaf Wall Decor</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+
+    <div class="product-card product-medium"
+         data-prefix="Wall_art_6_"
+         data-folder="public/Wall Art"
+         data-title="Luxe Foliage Wall Sculpture"
+         data-description="This striking wall sculpture features a beautiful, sprawling design of golden leaves in a botanical arrangement. The high-gloss chrome finishing creates a brilliantly reflective and luxurious surface."
+         data-dimensions="100x70 cm"
+         data-material="Canvas & Metal"
+         data-finish="Matte/Gloss"
+         data-weight="2kg"
+         onclick="openModal(this)">
+      <img src="public/Wall Art/Wall_art_6_1.jpg" alt="public/Wall Art 6">
+      <h3>Luxe Foliage Wall Sculpture</h3>
+      <p>Contemporary handcrafted wall art.</p>
+    </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section id="about" class="about-section fade-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Mashriq Decor</h2>
+          At <strong>Mashriq Decor</strong>, we craft premium 
+          <strong>brass and wooden decor</strong> blending timeless artistry with 
+          modern elegance. Based in <strong>Moradabad, UP</strong>, our roots go back 
+          to <strong>1952</strong>. From a boutique start to global exports, we 
+          partner with artisans using <strong>eco-friendly materials</strong> and 
+          <strong>traditional techniques</strong>. Each piece reflects passion 
+          for quality, sustainability, and the beauty of handcrafted design.
+        </div>
+        <div class="about-image">
+          <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Our story">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2 class="quote-title">Get Quotations</h2>
+          <p class="quote-text">
+            <br>Have a custom request or bulk order?
+            Contact us today for a quotation.
+          </p>
+          <button class="cta-button" onclick="openQuoteModal()">
+            Request a Quote
+          </button>
+        </div>
+        
+        <div id="quoteModal" class="modal">
+          <div class="modal-content quote-modal-content">
+            <span class="close" title="Close modal">&times;</span>
+            <h2 class="modal-title">Request a Quote</h2>
+            <p>Please fill out the form below and we will get back to you shortly.</p>
+            <form id="quoteForm" action="#">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="request">Your Request</label>
+                <textarea id="request" name="request" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="submit-button">Submit Request</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#new-launches">New Launches</a></li>
+            <li><a href="#vases">Vases</a></li>
+            <li><a href="#candle-holders">Candle Holders</a></li>
+            <li><a href="#lamps">Lamp</a></li>
+            <li><a href="#wall-arts">Wall Arts</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: hello@Mashriqdecor.com</p>
+          <p>Phone: (555) 123-4567</p>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mashriq Decor. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" title="Close modal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="main2.js"></script>
+</body>
+</html>
