@@ -409,7 +409,7 @@
          data-prefix="candle_holder_7_"
          data-folder="images/candle_stand"
          data-title="Brass-tone Glass Cylinder Candlestick On Stand (CS-024)"
-         data-description="Vintage-inspired brass frame with tall glass cylinder atop a black rectangular base and spherical accent, perfect as a centerpiece or decorative candle holder."
+         data-description="Vintage-inspired metal frame with tall glass cylinder atop a black rectangular base and spherical accent, perfect as a centerpiece or decorative candle holder."
          data-dimensions="Dimensions: 40x20cm"
          data-material="Brass"
          data-finish="Antique"
@@ -785,5 +785,64 @@
   </div>
 
   <script src="script.js"></script>
+
+  <!-- ✅ Enhanced GA Event Tracking -->
+  <script>
+    // Track product clicks
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const productName = this.querySelector('h3')?.textContent || 'Unknown Product';
+        gtag('event', 'product_click', {
+          event_category: 'Engagement',
+          event_label: productName
+        });
+      });
+    });
+
+    // Track navigation clicks
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        gtag('event', 'nav_click', {
+          event_category: 'Navigation',
+          event_label: this.textContent
+        });
+      });
+    });
+
+    // Track CTA button clicks
+    document.querySelectorAll('.cta-button').forEach(button => {
+      button.addEventListener('click', function() {
+        gtag('event', 'cta_click', {
+          event_category: 'Lead',
+          event_label: this.textContent.trim()
+        });
+      });
+    });
+
+    // Track quote form submission
+    const quoteForm = document.getElementById('quoteForm');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', function(e) {
+        gtag('event', 'form_submit', {
+          event_category: 'Lead',
+          event_label: 'Quote Form Submitted'
+        });
+      });
+    }
+
+    // Track section views (scroll depth)
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          gtag('event', 'section_view', {
+            event_category: 'Scroll',
+            event_label: entry.target.id
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
