@@ -937,7 +937,7 @@
             <span class="close" title="Close modal">&times;</span>
             <h2 class="modal-title">Request a Quote</h2>
             <p>Please fill out the form below and we will get back to you shortly.</p>
-            <form id="quoteForm" action="#">
+            <form id="quoteForm">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -1031,13 +1031,110 @@
       });
     });
 
-    // Track quote form submission
+    // Google Sheets Backend Integration
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzOLv39EZQdGoUhSFkSmXnyz_uO57WECkSBw1Ft6KF9f4HcKprDGUPekesYYYa5NKE2/exec"; // <-- replace with your Google Apps Script web app URL
+
     const quoteForm = document.getElementById('quoteForm');
     if (quoteForm) {
       quoteForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // collect values
+        const payload = {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          request: document.getElementById('request').value.trim()
+        };
+
+        // basic front-end validation
+        if (!payload.name || !payload.email || !payload.request) {
+          alert('Please fill Name, Email and Request fields.');
+          return;
+        }
+
+        // Track form submission attempt
         gtag('event', 'form_submit', {
           event_category: 'Lead',
           event_label: 'Quote Form Submitted'
+        });
+
+        // Disable submit button to prevent double submission
+        const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        // Check if running from file:// protocol (local file)
+        if (window.location.protocol === 'file:') {
+          alert('⚠️ This form requires a web server to work properly.\n\nPlease:\n1. Upload this file to a web server, OR\n2. Use a local server (e.g., Python: python -m http.server 8000)\n\nOpening HTML files directly (file://) causes CORS errors.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          return;
+        }
+
+        // Send to Apps Script - Google Apps Script works best with URL-encoded data
+        const urlEncodedData = new URLSearchParams();
+        urlEncodedData.append('name', payload.name);
+        urlEncodedData.append('email', payload.email);
+        urlEncodedData.append('phone', payload.phone);
+        urlEncodedData.append('request', payload.request);
+
+        fetch(WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: urlEncodedData
+        })
+        .then(() => {
+          // With no-cors mode, we can't read response, but if no error, assume success
+          // Note: Make sure your Google Apps Script returns proper CORS headers
+          alert('Thanks — your request has been sent!');
+          document.getElementById('quoteForm').reset();
+          // close modal
+          const closeBtn = document.querySelector('#quoteModal .close');
+          if (closeBtn) closeBtn.click();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        })
+        .catch(err => {
+          console.error('Submission error:', err);
+          // Try alternative method with JSON
+          fetch(WEB_APP_URL, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(resp => {
+            if (!resp.ok) {
+              throw new Error(`HTTP error! status: ${resp.status}`);
+            }
+            return resp.json();
+          })
+          .then(data => {
+            if (data && data.status === 'success') {
+              alert('Thanks — your request has been sent!');
+              document.getElementById('quoteForm').reset();
+              const closeBtn = document.querySelector('#quoteModal .close');
+              if (closeBtn) closeBtn.click();
+            } else {
+              alert('There was an error submitting your request. Please try again.');
+              console.error('Response data:', data);
+            }
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          })
+          .catch(fetchErr => {
+            console.error('Fetch error details:', fetchErr);
+            alert('Network error: could not submit form.\n\nPossible issues:\n1. Check your internet connection\n2. Verify the Google Apps Script URL is correct\n3. Ensure the script is deployed as a web app with proper permissions\n\nError: ' + fetchErr.message);
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          });
         });
       });
     }
