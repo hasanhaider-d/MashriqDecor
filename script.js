@@ -190,20 +190,30 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // 🔹 Handle form submission
-  document.getElementById("quoteForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+document.getElementById("quoteForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-    const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      request: document.getElementById("request").value
-    };
+  const form = document.getElementById("quoteForm");
+  const formData = new FormData(form);
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzOLv39EZQdGoUhSFkSmXnyz_uO57WECkSBw1Ft6KF9f4HcKprDGUPekesYYYa5NKE2/exec"; // <-- replace with your Google Apps Script web app URL
 
-    console.log("Form Submitted:", formData);
-    alert("Your request has been sent! We will contact you shortly.");
 
-    quoteModal.style.display = "none";
-    this.reset();
-  });
+  try {
+    const response = await fetch(WEB_APP_URL, {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      alert("Your request has been sent! We will contact you shortly.");
+      quoteModal.style.display = "none";
+      form.reset();
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+
+  } catch (error) {
+    alert("Network error. Please try again later.");
+  }
+});
 });
