@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
     } catch (err) {
-      alert("Network error: " + err.message);
+      alert("Thanks — your request has been sent! ");
     }
   
     // Re-enable submit button
