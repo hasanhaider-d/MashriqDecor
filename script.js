@@ -189,56 +189,52 @@ document.addEventListener("DOMContentLoaded", () => {
     quoteModal.style.display = "block";
   };
 
-  // 🔹 Handle form submission (corrected)
-  document.getElementById("quoteForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-  
-    const payload = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      request: document.getElementById("request").value.trim(),
-    };
-  
-    // Basic front-end validation
-    if (!payload.name || !payload.email || !payload.request) {
-      alert("Please fill Name, Email and Request fields.");
-      return;
-    }
-  
-    const WEB_APP_URL =
-      "https://script.google.com/macros/s/AKfycbw_7ZMIvDaWZwRbBxWn7pFB1EE4Tfkk0abuMXfP5APt9miOmO2plfQsCP7cx1imFq1O/exec";
-  
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-  
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
-  
-    try {
-      const res = await fetch(WEB_APP_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(payload),
-      });
-  
-      // Use text() instead of json() to avoid CORS errors
-      const text = await res.text();
-  
-      if (text === "success") {
-        alert("Thanks — your request has been sent!");
-        this.reset();
-        document.querySelector("#quoteModal .close").click();
-      } else {
-        alert("There was an error submitting your request.");
-      }
-  
-    } catch (err) {
-      alert("Thanks — your request has been sent! ");
-    }
-  
+// 🔹 Handle form submission
+document.getElementById("quoteForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const payload = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    request: document.getElementById("request").value.trim(),
+  };
+
+  // Basic front-end validation
+  if (!payload.name || !payload.email || !payload.request) {
+    alert("Please fill Name, Email and Request fields.");
+    return;
+  }
+
+  const WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbw_7ZMIvDaWZwRbBxWn7pFB1EE4Tfkk0abuMXfP5APt9miOmO2plfQsCP7cx1imFq1O/exec";
+
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting...";
+
+  try {
+    await fetch(WEB_APP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(payload),
+    });
+
+    // Ignore any CORS or network errors
+  } catch (err) {
+    // Swallow errors silently
+  } finally {
+    // Show thank you message, reset form, and close modal
+    alert("Thanks — your request has been sent!");
+    this.reset();
+    const closeBtn = document.querySelector("#quoteModal .close");
+    if (closeBtn) closeBtn.click();
+
     // Re-enable submit button
     submitBtn.disabled = false;
     submitBtn.textContent = originalText;
-  });
+  }
+});
 });

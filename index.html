@@ -988,6 +988,57 @@
     </div>
   </footer>
 
+  <!-- ✅ Enhanced GA Event Tracking -->
+  <script>
+    // Track product clicks
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const productName = this.querySelector('h3')?.textContent || 'Unknown Product';
+        gtag('event', 'product_click', {
+          event_category: 'Engagement',
+          event_label: productName
+        });
+      });
+    });
+
+    // Track navigation clicks
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        gtag('event', 'nav_click', {
+          event_category: 'Navigation',
+          event_label: this.textContent
+        });
+      });
+    });
+
+    // Track CTA button clicks
+    document.querySelectorAll('.cta-button').forEach(button => {
+      button.addEventListener('click', function() {
+        gtag('event', 'cta_click', {
+          event_category: 'Lead',
+          event_label: this.textContent.trim()
+        });
+      });
+    });
+
+    // Track section views (scroll depth)
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          gtag('event', 'section_view', {
+            event_category: 'Scroll',
+            event_label: entry.target.id
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
+
+
   <!-- Modal -->
   <div id="productModal" class="modal">
     <div class="modal-content">
@@ -998,53 +1049,4 @@
 
   <script src="script.js"></script>
 
-  <!-- ✅ Enhanced GA Event Tracking -->
-    <script>
-      // Track product clicks
-      document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('click', function() {
-          const productName = this.querySelector('h3')?.textContent || 'Unknown Product';
-          gtag('event', 'product_click', {
-            event_category: 'Engagement',
-            event_label: productName
-          });
-        });
-      });
-  
-      // Track navigation clicks
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-          gtag('event', 'nav_click', {
-            event_category: 'Navigation',
-            event_label: this.textContent
-          });
-        });
-      });
-  
-      // Track CTA button clicks
-      document.querySelectorAll('.cta-button').forEach(button => {
-        button.addEventListener('click', function() {
-          gtag('event', 'cta_click', {
-            event_category: 'Lead',
-            event_label: this.textContent.trim()
-          });
-        });
-      });
-  
-      // Track section views (scroll depth)
-      const sections = document.querySelectorAll('section[id]');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            gtag('event', 'section_view', {
-              event_category: 'Scroll',
-              event_label: entry.target.id
-            });
-          }
-        });
-      }, { threshold: 0.5 });
-      sections.forEach(section => observer.observe(section));
-    </script>
-  </body>
-  </html>
   
