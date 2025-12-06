@@ -189,40 +189,52 @@ document.addEventListener("DOMContentLoaded", () => {
     quoteModal.style.display = "block";
   };
 
-  // 🔹 Handle form submission
-  document.getElementById("quoteForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
-  
-    const formData = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      request: document.getElementById("request").value.trim()
-    };
-  
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw_7ZMIvDaWZwRbBxWn7pFB1EE4Tfkk0abuMXfP5APt9miOmO2plfQsCP7cx1imFq1O/exec"; // <-- replace with your Google Apps Script web app UR
-  
-    try {
-      const response = await fetch(WEB_APP_URL, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
-  
-      const result = await response.json();
-  
-      if (result.status === "success") {
-        alert("Your request has been sent!");
-        document.getElementById("quoteForm").reset();
-        document.getElementById("quoteModal").style.display = "none";
-      } else {
-        alert("Error saving your request.");
-      }
-    } catch (error) {
-      alert("Network error. Please try again.");
+  // 🔹 Handle form submission (corrected)
+document.getElementById("quoteForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const payload = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    request: document.getElementById("request").value.trim(),
+  };
+
+  if (!payload.name || !payload.email || !payload.request) {
+    alert("Please fill Name, Email and Request fields.");
+    return;
+  }
+
+  const WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbw_7ZMIvDaWZwRbBxWn7pFB1EE4Tfkk0abuMXfP5APt9miOmO2plfQsCP7cx1imFq1O/exec";
+
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting...";
+
+  try {
+    const res = await fetch(WEB_APP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(payload),
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+      alert("Thanks — your request has been sent!");
+      this.reset();
+      document.querySelector("#quoteModal .close").click();
+    } else {
+      alert("There was an error submitting your request.");
     }
-  });
+  } catch (err) {
+    alert("Network error: " + err.message);
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = originalText;
+});
 });
