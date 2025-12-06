@@ -194,35 +194,35 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
   
     const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      request: document.getElementById("request").value
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      request: document.getElementById("request").value.trim()
     };
   
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxraNCHJv6ftae5VgLo8-ZhVUaoE7hnj__Iq4OJHdSoFV9ruR-djBHLRXP4Ve1HCsYa/exec"; // must be the /exec URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw_7ZMIvDaWZwRbBxWn7pFB1EE4Tfkk0abuMXfP5APt9miOmO2plfQsCP7cx1imFq1O/exec"; // <-- replace with your Google Apps Script web app UR
   
     try {
       const response = await fetch(WEB_APP_URL, {
         method: "POST",
         mode: "cors",
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(formData)
       });
   
-      if (response.ok) {
-        alert("Your request has been sent! We will contact you shortly.");
-        quoteModal.style.display = "none";
-        this.reset();
+      const result = await response.json();
+  
+      if (result.status === "success") {
+        alert("Your request has been sent!");
+        document.getElementById("quoteForm").reset();
+        document.getElementById("quoteModal").style.display = "none";
       } else {
-        alert("Error submitting form.");
+        alert("Error saving your request.");
       }
     } catch (error) {
       alert("Network error. Please try again.");
     }
   });
-  
 });
